@@ -1,5 +1,5 @@
-#ifndef QzCrossWordPlayer_H
-#define QzCrossWordPlayer_H
+#ifndef CrossWordPlayer_H
+#define CrossWordPlayer_H
 
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QToolBar>
@@ -7,12 +7,12 @@
 
 #include "QzCrossWord.h"
 
-class QzCrossWordPlayer : public QMainWindow {
+class CrossWordPlayer : public QMainWindow {
     Q_OBJECT
 
     public:
-        QzCrossWordPlayer ();
-       ~QzCrossWordPlayer ();
+        CrossWordPlayer ();
+       ~CrossWordPlayer ();
 
     public slots:
         void          setPuzzle         (const QString& filename);

@@ -17,7 +17,7 @@ QzCrossWordCell::~QzCrossWordCell () {
 }
 
 QSize QzCrossWordCell::sizeHint () const {
-    return QSize(20,20);
+    return QSize(25,25);
 }
 
 QSizePolicy QzCrossWordCell::sizePolicy () const {
@@ -217,7 +217,7 @@ void QzCrossWordCell::paintLetter (QPainter& p) {
         letter = QString(QChar(solution()));
     }
 
-    p.drawText(r, Qt::AlignCenter, letter);
+    p.drawText(r, Qt::AlignRight, letter);
 
     if (showCorrectness() == true && isSolutionRevealed() == false && guess() != ' ' && isSolutionCorrect() == false) {
         p.drawLine (rect().width(),0, 0,rect().height());

@@ -191,7 +191,7 @@ void QzCrossWordGrid::checkLetter () {
 }
 
 QSize QzCrossWordGrid::sizeHint () const {
-    return QSize(20,20);
+    return QSize(25,25);
 }
 
 QSizePolicy QzCrossWordGrid::sizePolicy () const {
@@ -199,7 +199,7 @@ QSizePolicy QzCrossWordGrid::sizePolicy () const {
 }
 
 QSize QzCrossWordGrid::minimumSizeHint () const {
-    return QSize(20,20);
+    return QSize(25,25);
 }
 
 void QzCrossWordGrid::keyPressEvent (QKeyEvent* e) {

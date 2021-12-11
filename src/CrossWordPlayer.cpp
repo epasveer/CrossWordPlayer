@@ -292,14 +292,14 @@ CrossWordPlayer::~CrossWordPlayer () {
  */
 void CrossWordPlayer::launchOpenDialog() {
 
-    QString filename = QFileDialog::getOpenFileName(this, QString::null, "*.puz *.txt");
+    QString filename = QFileDialog::getOpenFileName(this, QString(), "*.puz *.txt");
 
     setPuzzle (filename);
 }
 
 void CrossWordPlayer::launchSaveDialog() {
 
-    QString filename = QFileDialog::getSaveFileName(this, QString::null, "*.puz");
+    QString filename = QFileDialog::getSaveFileName(this, QString(), "*.puz");
 
     savePuzzle (filename);
 }

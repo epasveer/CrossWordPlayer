@@ -7,8 +7,8 @@
 
 class QzCrossWordClue : public QListWidgetItem {
     public:
-       QzCrossWordClue (const int number, QListWidget* listWidget, const QString& text = QString::null);
-       QzCrossWordClue (const int number, const QString& text=QString::null);
+       QzCrossWordClue (const int number, QListWidget* listWidget, const QString& text = QString());
+       QzCrossWordClue (const int number, const QString& text=QString());
       ~QzCrossWordClue ();
 
        int                                  number               () const;
