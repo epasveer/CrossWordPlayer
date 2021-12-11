@@ -4,7 +4,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
 
-#include "QzCrossWordPlayer.h"
+#include "CrossWordPlayer.h"
 
 static const char* fileopen_xpm[] = {
     "16 13 5 1",
@@ -98,7 +98,7 @@ static const char* letter_xpm[]={
     "aaaaaaaaaaaaaaaa",
     "aaaaaaaaaaaaaaaa"};
 
-static const char *check_solution_xpm[]={
+static const char* check_solution_xpm[]={
 "16 16 5 1",
 ". c None",
 "b c #000000",
@@ -123,7 +123,7 @@ static const char *check_solution_xpm[]={
 "bbbbbbbbbbbbbbbb"};
 
 
-static const char *check_word_xpm[]={
+static const char* check_word_xpm[]={
 "16 16 4 1",
 ". c None",
 "b c #000000",
@@ -147,7 +147,7 @@ static const char *check_word_xpm[]={
 "................"};
 
 
-static const char *check_letter_xpm[]={
+static const char* check_letter_xpm[]={
 "16 16 4 1",
 ". c None",
 "b c #000000",
@@ -206,7 +206,7 @@ static const char* crossword_xpm[] = {
     "oooooooooooooooooooooooo"
 };
 
-QzCrossWordPlayer::QzCrossWordPlayer () : QMainWindow () {
+CrossWordPlayer::CrossWordPlayer () : QMainWindow () {
 
     _crossWord = new QzCrossWord(this);
 
@@ -238,7 +238,6 @@ QzCrossWordPlayer::QzCrossWordPlayer () : QMainWindow () {
     menuBar()->addMenu(_helpMenu);
 
     // Tool Bar.
-
     _toolBar = addToolBar("Puzzle Operations");
 
     QAction* openAction           = _toolBar->addAction (QPixmap(fileopen_xpm), "");
@@ -282,7 +281,7 @@ QzCrossWordPlayer::QzCrossWordPlayer () : QMainWindow () {
   \param    X    Description of X
   \return        Description of return value
  */
-QzCrossWordPlayer::~QzCrossWordPlayer () {
+CrossWordPlayer::~CrossWordPlayer () {
 }
 
 /**
@@ -291,67 +290,67 @@ QzCrossWordPlayer::~QzCrossWordPlayer () {
   \param    X    Description of X
   \return        Description of return value
  */
-void QzCrossWordPlayer::launchOpenDialog() {
+void CrossWordPlayer::launchOpenDialog() {
 
     QString filename = QFileDialog::getOpenFileName(this, QString::null, "*.puz *.txt");
 
     setPuzzle (filename);
 }
 
-void QzCrossWordPlayer::launchSaveDialog() {
+void CrossWordPlayer::launchSaveDialog() {
 
     QString filename = QFileDialog::getSaveFileName(this, QString::null, "*.puz");
 
     savePuzzle (filename);
 }
 
-void QzCrossWordPlayer::setPuzzle (const QString& filename) {
+void CrossWordPlayer::setPuzzle (const QString& filename) {
 
     if (filename.isNull() == false) {
         _crossWord->setPuzzle(filename);
     }
 }
 
-void QzCrossWordPlayer::savePuzzle (const QString& filename) {
+void CrossWordPlayer::savePuzzle (const QString& filename) {
 
     if (filename.isNull() == false) {
         _crossWord->savePuzzle(filename);
     }
 }
 
-void QzCrossWordPlayer::revealSolution () {
+void CrossWordPlayer::revealSolution () {
     _crossWord->revealSolution(true);
 }
 
-void QzCrossWordPlayer::revealWord () {
+void CrossWordPlayer::revealWord () {
     _crossWord->revealWord(true);
 }
 
-void QzCrossWordPlayer::revealLetter () {
+void CrossWordPlayer::revealLetter () {
     _crossWord->revealLetter(true);
 }
 
-void QzCrossWordPlayer::checkSolution () {
+void CrossWordPlayer::checkSolution () {
     _crossWord->checkSolution();
 }
 
-void QzCrossWordPlayer::checkWord () {
+void CrossWordPlayer::checkWord () {
     _crossWord->checkWord();
 }
 
-void QzCrossWordPlayer::checkLetter () {
+void CrossWordPlayer::checkLetter () {
     _crossWord->checkLetter();
 }
 
-void QzCrossWordPlayer::clearSolution () {
+void CrossWordPlayer::clearSolution () {
     _crossWord->clearSolution();
 }
 
-void QzCrossWordPlayer::launchAboutDialog() {
+void CrossWordPlayer::launchAboutDialog() {
 
     QMessageBox* message = new QMessageBox(this);
-    message->setWindowTitle ("QzCrossWordPlayer");
-    message->setText ("QzCrossWordPlayer (ver. 2.1)\nOctober, 2018\nErnie Pasveer (epasveer@att.net)\nReleased under the GPL");
+    message->setWindowTitle ("CrossWordPlayer");
+    message->setText ("CrossWordPlayer (ver. 3.1)\nOctober, 2018\nErnie Pasveer (epasveer@att.net)\nReleased under the GPL");
     message->setIconPixmap (QPixmap(crossword_xpm));
     message->addButton (QMessageBox::Ok);
 
@@ -364,7 +363,7 @@ int main (int argc, char* argv[]) {
 
     QApplication app (argc, argv);
 
-    QzCrossWordPlayer mainWindow;
+    CrossWordPlayer mainWindow;
     if (argc == 2) {
         mainWindow.setPuzzle(QString(argv[1]));
     }
